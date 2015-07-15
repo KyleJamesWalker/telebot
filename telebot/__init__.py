@@ -9,6 +9,9 @@ class TeleBot(object):
         self.update_rules = list()
         self.config = dict(
             api_key=None,
+            requests_kwargs=dict(
+                timeout=60,
+            ),
         )
         self.offset = 0
         self.whoami = None
@@ -122,7 +125,8 @@ class TeleBot(object):
         try:
             response = method(endpoint,
                               data=kwargs.get('data', None),
-                              params=params)
+                              params=params,
+                              **self.config['requests_kwargs'])
 
             if response.status_code != 200:
                 raise Exception('Got unexpected response.\n{}: {}'.
@@ -130,6 +134,7 @@ class TeleBot(object):
 
             return response.json()
         except Exception as e:
+            print(e)
             return {
                 'error': str(e),
             }
