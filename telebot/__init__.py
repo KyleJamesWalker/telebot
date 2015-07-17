@@ -65,7 +65,7 @@ class TeleBot(object):
                                **m.groupdict())
 
     def process_updates(self, updates):
-        if updates['ok'] is True:
+        if updates.get('ok', False) is True:
             for msg in updates['result']:
                 self.process_update(msg)
 
@@ -136,6 +136,7 @@ class TeleBot(object):
         except Exception as e:
             print(e)
             return {
+                'ok': False,
                 'error': str(e),
             }
 
