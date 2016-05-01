@@ -4,6 +4,7 @@ import time
 
 
 class TeleBot(object):
+
     def __init__(self, import_name):
         self.import_name = import_name
         self.update_rules = list()
@@ -98,9 +99,11 @@ class TeleBot(object):
 
         while True:
             try:
-                response = self.get_updates(poll_timeout,
-                                            self.offset)
-                self.process_updates(response)
+                response = self.get_updates(poll_timeout, self.offset)
+                if response.get('ok', False) is False:
+                    raise ValueError(response['error'])
+                else:
+                    self.process_updates(response)
             except Exception as e:
                 print("Error: Unknown Exception")
                 print(e)
@@ -117,24 +120,18 @@ class TeleBot(object):
         endpoint = base_api.format(api_key=self.config['api_key'],
                                    endpoint=endpoint)
 
-        params = kwargs.get('params', {})
-        params.update({
-            key: value for key, value in kwargs.iteritems()
-        })
-
         try:
             response = method(endpoint,
                               data=kwargs.get('data', None),
-                              params=params,
+                              params=kwargs.get('params', {}),
                               **self.config['requests_kwargs'])
 
             if response.status_code != 200:
-                raise Exception('Got unexpected response.\n{}: {}'.
-                                format(response.status_code, response.text))
+                raise ValueError('Got unexpected response. ({}) - {}'.
+                                 format(response.status_code, response.text))
 
             return response.json()
         except Exception as e:
-            print(e)
             return {
                 'ok': False,
                 'error': str(e),
