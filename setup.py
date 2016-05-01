@@ -10,13 +10,16 @@ requirements = [
 ]
 
 test_requirements = [
-    "nose",
     "mock",
+    "nose",
+    "pytest",
+    "pytest-mock",
+    "vcrpy",
 ]
 
 setup(
     name='telebot',
-    version='0.0.2',
+    version='0.0.3',
     description='A Telegram bot library, with simple route decorators.',
     long_description=readme,
     author='Kyle James Walker',
@@ -34,8 +37,9 @@ setup(
         'License :: OSI Approved :: MIT License',
         'Natural Language :: English',
         'Programming Language :: Python :: 2.7',
-        'Programming Language :: Python :: 3.4',
+        'Programming Language :: Python :: 3.5',
     ],
+    setup_requires=['pytest-runner'],
     test_suite='tests',
     tests_require=test_requirements
 )
