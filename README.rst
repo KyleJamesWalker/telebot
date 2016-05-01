@@ -6,8 +6,9 @@ A Telegram bot library, with simple route decorators.
 Currently a work in progress, doesn't do much now, but will register and send messages.
 
 Example Setup
--------------
-```
+^^^^^^^^^^^^^
+::
+
  from telebot import TeleBot
 
  app = TeleBot(__name__)
@@ -23,14 +24,13 @@ Example Setup
 
  @app.route('(?!/).+')
  def parrot(message):
-     chat_dest = message['chat']['id']
-     user_msg = message['text']
+    chat_dest = message['chat']['id']
+    user_msg = message['text']
 
-     msg = "Parrot Says: {}".format(user_msg)
-     app.send_message(chat_dest, msg)
+    msg = "Parrot Says: {}".format(user_msg)
+    app.send_message(chat_dest, msg)
 
 
  if __name__ == '__main__':
      app.config['api_key'] = 'xxxxxxxx:enterYourBotKeyHereToTest'
      app.poll(debug=True)
-```

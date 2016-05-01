@@ -3,7 +3,7 @@ try:
 except ImportError:
     from distutils.core import setup
 
-readme = open('README.md').read()
+readme = open('README.rst').read()
 
 requirements = [
     "requests==2.7.0",
