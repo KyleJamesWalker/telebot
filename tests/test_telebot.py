@@ -10,9 +10,7 @@ from telebot import TeleBot
 
 my_vcr = vcr.VCR(
     cassette_library_dir='tests/cassettes',
-    # record_mode='all',
-    record_mode='once',
-    match_on=['uri', 'method'],
+    record_mode='once',  # Change to 'all' when recording new entries
 )
 
 
