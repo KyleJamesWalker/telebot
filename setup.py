@@ -6,7 +6,7 @@ except ImportError:
 readme = open('README.rst').read()
 
 requirements = [
-    "requests==2.7.0",
+    "requests",
 ]
 
 test_requirements = [
@@ -19,7 +19,7 @@ test_requirements = [
 
 setup(
     name='telebot',
-    version='0.0.3',
+    version='0.0.4',
     description='A Telegram bot library, with simple route decorators.',
     long_description=readme,
     author='Kyle James Walker',
