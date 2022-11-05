@@ -1,3 +1,13 @@
+Archvived
+---------
+
+This project has been archived and the PyPi package that this was using has been
+transfered to `pyTelegramBotAPI <https://github.com/eternnoir/pyTelegramBotAPI>`_.
+
+This was done because the `telebot` project recently became a `CRITICAL PROJECT`
+due to the high install count, and from what I could tell it was from people wanting
+to use `pyTelegramBotAPI` and not this package.
+
 telebot
 -------
 
