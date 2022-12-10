@@ -1,5 +1,8 @@
-telebot
--------
+This library is discontinued.
+============
+
+Use pyTelegramBotAPI instead: https://pypi.org/project/pyTelegramBotAPI
+------------
 
 A Telegram bot library, with simple route decorators.
 

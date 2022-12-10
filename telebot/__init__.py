@@ -5,7 +5,10 @@ import time
 
 class TeleBot(object):
 
-    def __init__(self, import_name):
+    def __init__(self, import_name, force_use = False):
+        if not force_use:
+            raise Exception("This library is discontinued. Use pyTelegramBotAPI instead: https://pypi.org/project/pyTelegramBotAPI")
+
         self.import_name = import_name
         self.update_rules = list()
         self.config = dict(
