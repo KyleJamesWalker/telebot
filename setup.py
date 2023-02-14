@@ -20,7 +20,7 @@ test_requirements = [
 
 setup(
     name='telebot_router',
-    version='0.0.5',
+    version='0.0.6',
     description='A Telegram bot library, with simple route decorators.',
     long_description=readme,
     author='Kyle James Walker',
