@@ -6,7 +6,7 @@ import pytest
 import re
 import vcr
 
-from telebot import TeleBot
+from telebot_router import TeleBot
 
 my_vcr = vcr.VCR(
     cassette_library_dir='tests/cassettes',
