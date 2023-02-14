@@ -1,7 +1,13 @@
-telebot
+Telebot
 -------
 
-A Telegram bot library, with simple route decorators.
+Note: This is not `pyTelegramBotAPI <https://github.com/eternnoir/pyTelegramBotAPI>`_, but do to often confusion I have included
+it within this package.  So if you accidentally install this instead of `pyTelegramBotAPI <https://github.com/eternnoir/pyTelegramBotAPI>`_
+the examples, etc will still work.
+
+This originally was telegram bot library, with simple route decorators, and will now
+be imported as telebot_router, to separate `pyTelegramBotAPI <https://github.com/eternnoir/pyTelegramBotAPI>`_ and this package from
+collision.
 
 Currently a work in progress, doesn't do much now, but will register and send messages.
 
@@ -9,7 +15,7 @@ Example Setup
 ^^^^^^^^^^^^^
 ::
 
- from telebot import TeleBot
+ from telebot_router import TeleBot
 
  app = TeleBot(__name__)
 
